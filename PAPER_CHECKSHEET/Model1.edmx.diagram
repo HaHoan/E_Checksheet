@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0be9c5eaa5134e3c95022029c80ce8bf" Name="Diagram1">
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.CHECKSHEET_DETAIL" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.MALINHKIEN" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.MODEL" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.SPEC_SETTING" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.CHECKSHEET_DETAIL_HIS" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.CHECKSHEET" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="E_CHECKSHEETModel.CHECKSHEET_HIS" Width="1.5" PointX="7.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

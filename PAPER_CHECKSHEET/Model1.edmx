@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="E_CHECKSHEETModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHECKSHEET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaLinhKien" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="WO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+          <Property Name="CodeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodeConfirm" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dat" Type="date" Nullable="false" />
+          <Property Name="Machine" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JigCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKSHEET_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCheckSheet" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SpecValue" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKSHEET_DETAIL_HIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCheckSheet" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SpecValue" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKSHEET_HIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaLinhKien" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="WO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+          <Property Name="CodeUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodeConfirm" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dat" Type="date" Nullable="false" />
+          <Property Name="Machine" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JigCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MALINHKIEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaLinhKien" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModelName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SPEC_SETTING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaLinhKien" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Min" Type="float" Nullable="false" />
+          <Property Name="Max" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="E_CHECKSHEETModelStoreContainer">
+          <EntitySet Name="CHECKSHEET" EntityType="Self.CHECKSHEET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHECKSHEET_DETAIL" EntityType="Self.CHECKSHEET_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHECKSHEET_DETAIL_HIS" EntityType="Self.CHECKSHEET_DETAIL_HIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHECKSHEET_HIS" EntityType="Self.CHECKSHEET_HIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MALINHKIEN" EntityType="Self.MALINHKIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODEL" EntityType="Self.MODEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SPEC_SETTING" EntityType="Self.SPEC_SETTING" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="E_CHECKSHEETModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHECKSHEET_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCheckSheet" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SpecValue" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MALINHKIEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaLinhKien1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SPEC_SETTING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLinhKien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Min" Type="Double" Nullable="false" />
+          <Property Name="Max" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="E_CHECKSHEETEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHECKSHEET_DETAIL" EntityType="Self.CHECKSHEET_DETAIL" />
+          <EntitySet Name="MALINHKIENs" EntityType="Self.MALINHKIEN" />
+          <EntitySet Name="MODELs" EntityType="Self.MODEL" />
+          <EntitySet Name="SPEC_SETTING" EntityType="Self.SPEC_SETTING" />
+          <EntitySet Name="CUSTOMERs" EntityType="E_CHECKSHEETModel.CUSTOMER" />
+          <EntitySet Name="CHECKSHEET_DETAIL_HIS" EntityType="E_CHECKSHEETModel.CHECKSHEET_DETAIL_HIS" />
+          <EntitySet Name="CHECKSHEETs" EntityType="E_CHECKSHEETModel.CHECKSHEET" />
+          <EntitySet Name="CHECKSHEET_HIS" EntityType="E_CHECKSHEETModel.CHECKSHEET_HIS" />
+        </EntityContainer>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CHECKSHEET_DETAIL_HIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCheckSheet" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpecValue" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKSHEET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaLinhKien" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+          <Property Name="CodeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeConfirm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Machine" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MachineCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JigCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="CHECKSHEET_HIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaLinhKien" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+          <Property Name="CodeUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeConfirm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Machine" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MachineCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JigCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="E_CHECKSHEETModelStoreContainer" CdmEntityContainer="E_CHECKSHEETEntities">
+          <EntitySetMapping Name="CHECKSHEET_DETAIL">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.CHECKSHEET_DETAIL">
+              <MappingFragment StoreEntitySet="CHECKSHEET_DETAIL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdCheckSheet" ColumnName="IdCheckSheet" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="SpecValue" ColumnName="SpecValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MALINHKIENs">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.MALINHKIEN">
+              <MappingFragment StoreEntitySet="MALINHKIEN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MaLinhKien1" ColumnName="MaLinhKien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELs">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.MODEL">
+              <MappingFragment StoreEntitySet="MODEL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPEC_SETTING">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.SPEC_SETTING">
+              <MappingFragment StoreEntitySet="SPEC_SETTING">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="MaLinhKien" ColumnName="MaLinhKien" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHECKSHEET_DETAIL_HIS">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.CHECKSHEET_DETAIL_HIS">
+              <MappingFragment StoreEntitySet="CHECKSHEET_DETAIL_HIS">
+                <ScalarProperty Name="SpecValue" ColumnName="SpecValue" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="IdCheckSheet" ColumnName="IdCheckSheet" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHECKSHEETs">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.CHECKSHEET">
+              <MappingFragment StoreEntitySet="CHECKSHEET">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="JigCode" ColumnName="JigCode" />
+                <ScalarProperty Name="MachineCode" ColumnName="MachineCode" />
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="Dat" ColumnName="Dat" />
+                <ScalarProperty Name="CodeConfirm" ColumnName="CodeConfirm" />
+                <ScalarProperty Name="CodeUser" ColumnName="CodeUser" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="WO" ColumnName="WO" />
+                <ScalarProperty Name="MaLinhKien" ColumnName="MaLinhKien" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHECKSHEET_HIS">
+            <EntityTypeMapping TypeName="E_CHECKSHEETModel.CHECKSHEET_HIS">
+              <MappingFragment StoreEntitySet="CHECKSHEET_HIS">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="JigCode" ColumnName="JigCode" />
+                <ScalarProperty Name="MachineCode" ColumnName="MachineCode" />
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="Dat" ColumnName="Dat" />
+                <ScalarProperty Name="CodeConfirm" ColumnName="CodeConfirm" />
+                <ScalarProperty Name="CodeUser" ColumnName="CodeUser" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="WO" ColumnName="WO" />
+                <ScalarProperty Name="MaLinhKien" ColumnName="MaLinhKien" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
